@@ -21,6 +21,7 @@ import com.example.persistencedata.R
 import com.example.persistencedata.model.DetailSiswa
 import com.example.persistencedata.model.EntryViewModel
 import com.example.persistencedata.model.PenyediaViewModel
+import com.example.persistencedata.model.UIStateSiswa
 import com.example.persistencedata.navigasi.DestinasiNavigasi
 
 object DestinasiEntry: DestinasiNavigasi {
@@ -38,6 +39,24 @@ fun EntrySiswaScreen(
     val coroutineScope = rememberCoroutineScope()
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
+}
+@Composable
+fun EntrySiswaBody(
+    uiStateSiswa: UIStateSiswa,
+    onSiswaValueChange: (DetailSiswa) -> Unit,
+    onSaveClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column (
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_large)),
+        modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))
+    ) {
+        FormInputSiswa(
+            detailSiswa = uiStateSiswa.detailSiswa,
+            onValueChange = onSiswaValueChange,
+            modifier = modifier.fillMaxWidth()
+        )
+    }
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
