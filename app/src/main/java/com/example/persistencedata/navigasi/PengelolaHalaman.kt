@@ -11,6 +11,7 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavHostController
 import com.example.persistencedata.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -37,5 +38,11 @@ fun SiswaTopAppBar(
             }
         }
     )
+}
+@Composable
+fun HostNavigasi(
+    navController: NavHostController,
+    modifier: Modifier = Modifier
+) {
 
 }
