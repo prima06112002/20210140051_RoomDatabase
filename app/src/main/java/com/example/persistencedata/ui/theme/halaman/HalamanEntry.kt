@@ -3,6 +3,7 @@ package com.example.persistencedata.ui.theme.halaman
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -12,6 +13,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.persistencedata.R
 import com.example.persistencedata.model.DetailSiswa
@@ -59,6 +61,15 @@ fun FormInputSiswa(
             value = detailSiswa.alamat,
             onValueChange ={onValueChange(detailSiswa.copy(alamat = it))},
             label = { Text(stringResource(R.string.alamat)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled
+        )
+        OutlinedTextField(
+            value = detailSiswa.telpon,
+            onValueChange ={onValueChange(detailSiswa.copy(telpon = it))},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            label = { Text(stringResource(R.string.telpon)) },
             singleLine = true,
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled
