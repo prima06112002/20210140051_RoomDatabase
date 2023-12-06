@@ -55,6 +55,14 @@ fun FormInputSiswa(
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled
         )
+        OutlinedTextField(
+            value = detailSiswa.alamat,
+            onValueChange ={onValueChange(detailSiswa.copy(alamat = it))},
+            label = { Text(stringResource(R.string.alamat)) },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled
+        )
 
     }
 }
